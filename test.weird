@@ -1,0 +1,15 @@
+label: :main
+
+set: :myfn_arg0, i20
+set: :myfn_arg1, i35
+trapped_jmp: :myfn
+
+put: :myfn_ret
+exit:
+
+label: :myfn
+local_set: :myfn_ret, i0
+pushframe:
+  add: :myfn_arg0, :myfn_arg1, :myfn_ret
+popframe:
+return_to_trap: :myfn
